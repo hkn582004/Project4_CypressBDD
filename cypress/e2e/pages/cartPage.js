@@ -1,6 +1,6 @@
 class cartPage {
     btnAdd() {
-        return cy.get('span.text').find('span.txt-main.text_1').click();
+        return cy.contains('span.txt-main.text_1', 'Thêm vào giỏ').click({ force: true });
     }
 
     btnCart() {
