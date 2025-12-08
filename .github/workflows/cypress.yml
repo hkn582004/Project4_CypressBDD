@@ -9,24 +9,25 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    env:
+      CI: true
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'npm'
 
-      - name: Install dependencies (include dev)
-        run: npm install
+      - name: Install dependencies (dev included)
+        run: npm ci --include=dev
 
-      - name: Install Allure commandline
-        run: npm install -g allure-commandline --unsafe-perm
-
-      - name: Fix Cypress permissions
-        run: chmod +x node_modules/.bin/cypress
+      # Step sửa lỗi Cypress MISSING BINARY
+      - name: Install Cypress binary
+        run: npx cypress install
 
       - name: Verify Cypress
         run: npx cypress verify
