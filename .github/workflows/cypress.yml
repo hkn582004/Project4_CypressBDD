@@ -20,10 +20,13 @@ jobs:
           node-version: 18
 
       - name: Install dependencies (include dev)
-        run: npm install --include=dev
+        run: npm install
 
       - name: Install Allure commandline
         run: npm install -g allure-commandline --unsafe-perm
+
+      - name: Fix Cypress permissions
+        run: chmod +x node_modules/.bin/cypress
 
       - name: Verify Cypress
         run: npx cypress verify
