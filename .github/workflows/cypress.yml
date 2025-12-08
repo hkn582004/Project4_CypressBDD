@@ -37,8 +37,8 @@ jobs:
         run: |
           if [ -f package-lock.json ]; then npm ci; else npm install; fi
 
-      - name: Run Cypress (headless)
-        run: npx cypress run --env allure=true --headless --browser chrome
+      - name: Run tests
+        run: npm run test:run
 
       - name: Generate Allure report
         if: success()
