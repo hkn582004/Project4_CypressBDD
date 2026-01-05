@@ -22,7 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Run Cypress tests (action sẽ tự cài Cypress)
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
@@ -30,20 +29,28 @@ jobs:
           start: ''
           wait-on: ''
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_ALLURE_RESULTS_PATH: allure-results
 
       # Generate Allure report
       - name: Generate Allure report
         if: always()
         run: |
-          mkdir -p allure-results
           npx allure generate allure-results --clean
 
-      # Upload Allure report artifact
+      # Upload Allure report
       - name: Upload Allure report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-report
           path: allure-report
+
+      # Upload screenshots
+      - name: Upload Cypress screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
 
