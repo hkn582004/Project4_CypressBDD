@@ -11,9 +11,9 @@ Feature: Add to cart
     Examples:
       | path                         | expectedName                 | expectedPrice |
       | /chung-ta-song-de-buoc-tiep  | Chúng Ta Sống Để Bước Tiếp   | 72000         |
-      | /canh-chim-bi-thuong         | Cánh Chim Bị Thương          | 107100        |
+      | /me-cung-do-ipm              | Mê Cung Đỏ                   | 90000         |
       | /lam-giau-qua-chung-khoan    | Làm Giàu Qua Chứng Khoán     | 148500        |
-      | /chu-roi-nho                 | Chú Rối Nhỏ                  | 125100        |
+      | /day-con-kieu-nhat           | Dạy con kiểu nhật            | 80100         |
       | /ban-co-lon-159k             | Bàn Cờ Lớn                   | 127200        |
 
 

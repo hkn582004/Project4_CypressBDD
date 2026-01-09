@@ -11,7 +11,7 @@ Feature: Product detail page - Bậc thầy đọc vị
       | field        | expected        |
       | name         | Bậc thầy đọc vị |
       | brand        | Az Books        |
-      | stock        | Còn hàng        |
+      | stock        | Hết hàng        |
       | code         | 8935325026522   |
       | type         | SÁCH            |
 

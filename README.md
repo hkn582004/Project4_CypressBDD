@@ -15,3 +15,6 @@ Dự án này sử dụng Cypress phiên bản 13 để kiểm thử tự độn
 
 ## Tài liệu tham khảo
 - [Cypress Docs](https://docs.cypress.io/)
+
+- Chạy testcase: npx cypress open
+- Mở allure: npx allure open
